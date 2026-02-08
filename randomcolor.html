@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Random Color Generator</title>
+    <style>
+        #box{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            height: 70%;
+            width: 80%;
+        }
+        button{
+            background-color: black;
+            width: 80%;
+            color: white;
+            padding: 10px;
+        }
+        #display{
+            height: 40%;
+            width: 80%;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <center><div id="box">
+        <h1>RANDOM COLOR GENERATOR</h1>
+        <p id="color"></p>
+        <div id="display"></div><br>
+        <button>Generate</button>
+    </div>
+    </center>
+    <script>
+        let b = document.querySelector("button");
+        b.addEventListener("click",()=>{
+            let r = Math.floor(Math.random()*256);
+            let g = Math.floor(Math.random()*256);
+            let b = Math.floor(Math.random()*256);
+            document.querySelector("#color").innerText="rgb("+r+","+g+","+b+")";
+            document.querySelector("#display").style.backgroundColor="rgb("+r+","+g+","+b+")";
+        })
+    </script>
+</body>
+</html>
