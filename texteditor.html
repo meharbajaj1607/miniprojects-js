@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text</title>
+    <style>
+        body{
+            background-image: url('https://static.vecteezy.com/system/resources/previews/004/968/002/original/cute-abstract-modern-background-free-vector.jpg');
+        }
+        textarea{
+            width: 500px;
+            height: 200px;
+            background-color: #FFF8EE;
+        }
+        div{
+            height: 80%;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            border: 2px solid black;
+        }
+        h1{
+            color: navy;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+        button{
+            background-color: navy;
+            color: white;
+            width: 500px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <center><div id="box">
+        <h1>TEXT EDITOR</h1>
+        <p id="text"></p><br>
+        <textarea id="area"></textarea><br>
+        <button>CLEAR</button><br>
+    </div></center>
+    <script>
+        let t = document.querySelector("#area");
+        let p = document.querySelector("#text");
+        let s = "";
+        t.addEventListener("input",()=>{
+            console.log(t.value);
+            s = t.value;
+            p.innerText = s;
+        })
+        let b = document.querySelector("button");
+        b.addEventListener("click",()=>{
+            p.innerText="";
+            t.value="";
+        })
+    </script>
+</body>
+</html>
