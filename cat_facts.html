@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE CAT WORLD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=pets" />
+    <style>
+        *{
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        html{
+            background-color: #F2E6CD;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 100%;
+        }
+        #box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            position: absolute;
+            left: 5%;
+            z-index: 2;
+            background-color: transparent;
+        }
+        #paw1{
+            top: 85%;
+            left: 0;
+            z-index: 1;
+        }
+        #paw2{
+            top:80%;
+            left: 10%;
+            z-index: 1;
+        }
+        
+        .paw{
+            background-image: url('https://copilot.microsoft.com/th/id/BCO.d5153558-cb3e-40d0-9472-800bb5a33698.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            transform: rotate(45deg);
+        }
+        #fact{
+            background-color: #F2E6CD;
+            border-radius: 20px;
+            border: none;
+            font-size: 2rem;
+        }
+        #fact_label{
+            font-size: 2rem;
+        }
+        #caption{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        #fact:hover{
+            box-shadow: 5px 5px 10px black;
+        }
+        #cat{
+            display: flex;
+            gap: 10px;
+        }
+        #cat_fact{
+            font-size: 2rem;
+        }
+        #cat_img{
+            max-width: 500px;
+            max-height: 500px;
+            border-radius: 10px;
+        }
+        h1{
+            font-size: 3.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="paw1" class="paw"></div>
+    <div id="paw2" class="paw"></div>
+    <div id="box">
+        <h1>The Cat World</h1>
+        <div id="cat">
+            <div id="cat_fact"></div>
+            <img id="cat_img">
+        </div>
+        <div id="caption">
+            <label for="fact" id="fact_label">Click to know more facts!</label>
+            <button id="fact" class="material-symbols-outlined">pets</button>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+<script>
+        let btn = document.querySelector("#fact");
+        let div = document.querySelector("#cat_fact");
+        let pic = document.querySelector("#cat_img");
+        let out = document.querySelector("#cat");
+
+        let url = 'https://catfact.ninja/fact';
+        async function getFact(){
+            let data = await axios.get(url);
+            let fact=data.data;
+           return(fact.fact);
+        }
+        async function getImg(){
+            let img = await axios.get('https://api.thecatapi.com/v1/images/search');
+            let data = img.data
+            return(data[0]);
+        }
+        async function returnFact() {
+            let facts = await getFact();
+            div.innerText = (facts);
+            let img = await getImg();
+            pic.src = img.url;
+            pic.style.maxHeight='500px';
+            pic.style.maxWidth = '500px';
+        }
+            
+        btn.addEventListener('click',()=>{
+            div.style.height = '200px';
+            out.style.borderRadius= '10px';
+            out.style.padding= '20px';
+            out.style.border= '3px dotted black';
+            returnFact();
+        })
+
+        let p1=document.querySelector("#paw1");
+        let p2=document.querySelector("#paw2");
+        let y1 = 85;
+        let x1 = 0;
+        let y2 = 80;
+        let x2 = 10;
+        let time = 500;
+        function move1(){
+            return new Promise((res)=>{
+                setTimeout(()=>{
+                    x1+=15;
+                    y1-=15;
+                    res({
+                        t:y1,
+                        l:x1
+                    })
+                },time)
+            })
+        }
+        function move2(){
+            return new Promise((res)=>{
+                setTimeout(()=>{
+                    x2+=15;
+                    y2-=10;
+                    res({
+                        t:y2,
+                        l:x2
+                    })
+                },time+=250)
+            })
+        }
+        move1()
+        .then((r1)=>{
+            p1.style.top=`${r1.t}%`;
+            p1.style.left=`${r1.l}%`;
+            return move1();
+        })
+        .then((r2)=>{
+            p1.style.top=`${r2.t}%`;
+            p1.style.left=`${r2.l}%`;
+            return move1();
+        })
+        .then((r3)=>{
+            p1.style.top=`${r3.t}%`;
+            p1.style.left=`${r3.l}%`;
+            return move1();
+        })
+        .then((r4)=>{
+            p1.style.top=`${r4.t}%`;
+            p1.style.left=`${r4.l}%`;
+            return move1();
+        })
+        .then((r5)=>{
+            p1.style.top=`${r5.t}%`;
+            p1.style.left=`${r5.l}%`;
+            return move1();
+        })
+        .then((r6)=>{
+            p1.style.top=`${r6.t}%`;
+            p1.style.left=`${r6.l}%`;
+            return move1();
+        })
+        .then((r7)=>{
+            p1.style.top=`${r7.t}%`;
+            p1.style.left=`${r7.l}%`;
+            return move1();
+        })
+    
+        move2()
+        .then((r1)=>{
+            p2.style.top=`${r1.t}%`;
+            p2.style.left=`${r1.l}%`;
+            return move2();
+        })
+        .then((r2)=>{
+            p2.style.top=`${r2.t}%`;
+            p2.style.left=`${r2.l}%`;
+            return move2();
+        })
+        .then((r3)=>{
+            p2.style.top=`${r3.t}%`;
+            p2.style.left=`${r3.l}%`;
+            return move2();
+        })
+        .then((r4)=>{
+            p2.style.top=`${r4.t}%`;
+            p2.style.left=`${r4.l}%`;
+            return move2();
+        })
+        .then((r5)=>{
+            p2.style.top=`${r5.t}%`;
+            p2.style.left=`${r5.l}%`;
+            return move2();
+        })
+        .then((r6)=>{
+            p2.style.top=`${r6.t}%`;
+            p2.style.left=`${r6.l}%`;
+            return move2();
+        })
+
+    </script>
+</body>
+</html>
