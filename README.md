@@ -2,7 +2,7 @@
 
 This repository contains a collection of beginner-to-intermediate level web development projects built using HTML, CSS, and JavaScript.
 Each project focuses on strengthening core frontend concepts such as DOM manipulation, responsive design, event handling, and API integration.
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 📌 Projects Included
 
 🐶 Pet Adoption Website
@@ -19,11 +19,12 @@ Tech Stack
 HTML5
 CSS3
 Responsive Design
+
 Learning Outcomes
 Improved understanding of semantic HTML elements
 Practical experience with CSS layouts and transitions
 Basic responsive design using media queries
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🧮 Calculator
 A browser-based calculator interface built using HTML, CSS Grid, and JavaScript.
 Features
@@ -41,7 +42,7 @@ Learning Outcomes
 DOM manipulation
 Event handling
 UI structuring using CSS Grid
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🎮 Simon Game (Memory Game)
 A browser-based memory game where users repeat a growing sequence of colors.
 Features
@@ -75,7 +76,7 @@ Learning Outcomes
 Math-based random number generation
 DOM updates
 Event-driven programming
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 📝 Text Editor
 A simple live text editor that displays typed content in real time.
 Features
@@ -92,7 +93,7 @@ Learning Outcomes
 Input event handling
 Real-time DOM updates
 Basic state tracking
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ✅ To-Do App
 A dynamic task management application with checkbox-based task completion.
 Features
@@ -110,7 +111,7 @@ Learning Outcomes
 Dynamic element creation (createElement)
 Event listeners for dynamically added elements
 Basic state management
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🐱 Cat Facts Web App
 An API-based web application that fetches random cat facts and images.
 Features
@@ -131,12 +132,12 @@ Working with REST APIs
 Asynchronous JavaScript
 Handling JSON responses
 Updating UI based on API data
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ▶️ How to Run
 Clone the repository
 Navigate to the desired project folder
 Open the HTML file in a web browser
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🎯 Overall Skills Demonstrated
 Semantic HTML structuring
 Responsive design using Flexbox and Grid
@@ -145,7 +146,6 @@ Event-driven programming
 State management
 API integration using Axios
 Basic frontend application logic
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 👩‍💻 Author
-
 Mehar Bajaj
